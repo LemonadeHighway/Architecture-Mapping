@@ -1,0 +1,12 @@
+{
+  "name": "architecture-explorer",
+  "owner": { "name": "Zaid Zaatreh" },
+  "plugins": [
+    {
+      "name": "architecture-explorer",
+      "source": "./",
+      "description": "An interactive, live architecture map of your repository, with every relationship traced to its source.",
+      "version": "0.1.0"
+    }
+  ]
+}

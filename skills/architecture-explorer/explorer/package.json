@@ -1,0 +1,19 @@
+{
+  "name": "architecture-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local, read-only, live architecture map of a repository. Runs on plain Node.js; the TypeScript parser is borrowed from the scanned project (or installed here for the tests).",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "scan": "node cli.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

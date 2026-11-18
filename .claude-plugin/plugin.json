@@ -1,0 +1,10 @@
+{
+  "name": "architecture-explorer",
+  "version": "0.1.0",
+  "description": "An interactive, live architecture map of your repository: layers, API routes, tables, permissions, screens and outside services, every link traced to its file and line and marked verified, inferred or unresolved.",
+  "author": { "name": "Zaid Zaatreh" },
+  "homepage": "https://github.com/LemonadeHighway/Architecture-Mapping",
+  "repository": "https://github.com/LemonadeHighway/Architecture-Mapping",
+  "license": "MIT",
+  "keywords": ["architecture", "visualization", "dotnet", "aspnetcore", "react", "typescript", "security", "permissions", "database"]
+}

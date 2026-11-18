@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture Explorer</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233ecf8e' stroke-width='2'%3E%3Crect x='3' y='3' width='7' height='7' rx='1'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1'/%3E%3Cpath d='M10 6.5h4a3 3 0 0 1 3 3V14'/%3E%3C/svg%3E">
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" title="Developer tool — not part of the app">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14"/></svg>
+      <span id="repo-name">Architecture</span>
+    </div>
+    <button class="icon-btn" id="back" title="Back (Alt+←)" aria-label="Back"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+    <nav class="crumbs" id="crumbs" aria-label="Location"></nav>
+    <div class="search" id="search-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Search files, routes, tables, permissions…" autocomplete="off" spellcheck="false" aria-label="Search">
+      <kbd>/</kbd>
+      <div class="search-results" id="search-results" role="listbox" hidden></div>
+    </div>
+    <div class="top-actions">
+      <button class="top-btn" id="btn-health" data-tab="health"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Health <span class="badge red" id="health-count">·</span></button>
+      <button class="top-btn" id="btn-changes" data-tab="changes"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>Recent work <span class="badge green" id="changes-count">·</span></button>
+      <button class="top-btn" id="btn-coverage" data-tab="coverage"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9z"/></svg>Coverage</button>
+      <button class="top-btn" id="btn-flow"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4v16l13-8z"/></svg>Flows</button>
+      <button class="icon-btn" id="btn-panel" title="Show or hide the side panel" aria-label="Toggle panel"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/></svg></button>
+    </div>
+  </header>
+  <div class="viewbar" id="viewbar" role="tablist" aria-label="Views"></div>
+  <main class="stage">
+    <section class="canvas-wrap" id="canvas-wrap">
+      <div class="view-head" id="view-head"></div>
+      <div class="canvas" id="canvas" tabindex="0" aria-label="Architecture map"></div>
+      <div class="tour" id="tour" hidden></div>
+      <div class="legend" id="legend"></div>
+      <div class="zoom">
+        <button class="icon-btn" id="zoom-out" title="Zoom out (-)" aria-label="Zoom out">−</button>
+        <button class="icon-btn" id="zoom-fit" title="Fit to screen (0)" aria-label="Fit"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+        <button class="icon-btn" id="zoom-in" title="Zoom in (+)" aria-label="Zoom in">+</button>
+      </div>
+      <div class="filters" id="filters"></div>
+      <form class="ask" id="ask">
+        <div class="ask-answer" id="ask-answer" hidden></div>
+        <div class="ask-row">
+          <input id="ask-input" placeholder="Ask about this system… e.g. who calls /api/orders · which addresses are open" autocomplete="off" aria-label="Ask about the project">
+          <span class="ask-mode" title="Answers come from the scan index and a text search of the repository. No AI, nothing leaves this computer.">● Index search</span>
+          <button class="ask-go" type="submit" aria-label="Ask"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+        </div>
+      </form>
+      <div class="toasts" id="toasts" aria-live="polite"></div>
+    </section>
+    <aside class="panel" id="panel" aria-label="Details"></aside>
+  </main>
+  <div class="modal" id="source-modal" hidden></div>
+</body>
+</html>
